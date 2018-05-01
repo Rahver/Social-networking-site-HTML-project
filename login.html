@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dostibook - The Social Network</title>
+<link rel="shortcut icon" type="image/x-icon" href="assets\imgs\logo.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+.login-form{
+background: rgba(255,255,255,1);
+padding: 10% 20px;
+border-radius: 2px;
+box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.4);
+}
+.main{
+min-height:100vh;
+padding:10% 0px;
+}
+</style>
+
+<script>
+var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "admin" && password == "admin123"){
+alert ("Login successfully");
+window.location = "dashboard.html";
+return false;
+
+}
+else{
+attempt --;// Decrementing by one.
+alert("You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+return false;
+}
+}
+}
+
+</script>
+
+</head>
+<body>
+<div class="header">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-9">
+<div class="logo">
+<h1>Dostibook</h1>
+</div>
+</div>
+                
+</div>
+</div>
+</div>
+<div class="main">
+<div class="container-fluid">
+<div class="row">
+<div class="pull-left text-center col-sm-3">
+</div>
+<div class="pull-right col-sm-6 text-center">
+<div class="login-form">
+<p class="h3">Log in to Dostibook</p>
+
+<form action="javascript:void(0);" href="dashboard.html"" method="post" style="max-width:400px;margin:0px auto;">
+<div class="form-group">
+<input type="text" name="username" placeholder="Username" id = "username" class="input-lg col-sm-12"/>
+</div>
+<div class="form-group">
+<input type="password" placeholder="Password" name="pwd" id = "password" class="input-lg col-sm-12"/>
+</div>
+<div class="form-group">
+
+
+<input type="button" value="Login" id="submit" class="btn btn-success input-lg col-sm-12" onclick="validate()" />
+
+<br/>
+<br/>
+<br/>
+<div>
+<p><br/>Sample Login details :<br/>
+Username : admin<br/>
+Password : admin123 <br/>
+</p>
+</div><br/>
+<a href="index.html">Signup for Dostibook</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12">
+&copy; Dostibook 2017.
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
